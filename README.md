@@ -14,4 +14,4 @@ A ordem de utilização é a seguinte:
 
 ## Licença
 
-MIT. Veja [License](License.md)
+MIT. Veja [License](LICENSE.md)
