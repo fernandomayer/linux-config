@@ -10,8 +10,8 @@ A ordem de utilização é a seguinte:
 2. `config-git-github.sh`: instala o git, ssh, e importa minhas configurações pessoais dos repositórios do GitHub (e coloca nos lugares apropriados). Deve ser rodado como usuário normal, mas a senha de root será necessária em algumas etapas.
 3. `install-R-deps.sh`: adiciona o repositório do CRAN (`cran-r.c3sl.ufpr.br`) ao `etc/apt/sources.list`, instala pacotes de programação e demais dependências para o R. Depois baixa a última versão e *compila* o código-fonte. Deve ser rodado como usuário normal, mas a senha de root será necessária em algumas etapas.
 
-	NOTA: estes scripts ainda estão pouco genéricos, mas com o tempo 	pretendo deixá-los mais gerais.
+> NOTA: estes scripts ainda estão pouco genéricos, mas com o tempo pretendo deixá-los mais gerais.
 
 ## Licença
 
-MIT. Veja [License](LICENSE.md)
+MIT. Veja [LICENSE](LICENSE.md).
