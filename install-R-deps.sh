@@ -29,7 +29,7 @@ if [ $opcao -eq 1 ] ; then
 	gcc-multilib g++-multilib automake autoconf gawk \
 	openmpi-common openmpi-checkpoint libopenmpi1.3 libopenmpi-dev \
 	libsprng2 libsprng2-dev pvm pvm-dev unixodbc unixodbc-bin \
-	gdal-bin libgdal1-dev libproj-dev curl bwidget markdown
+	gdal-bin libgdal1-dev libproj-dev curl bwidget markdown pandoc
 
 fi
 
