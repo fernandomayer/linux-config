@@ -129,6 +129,10 @@ if [ $opcao -eq 1 ] ; then
     echo
     git clone git@github.com:emacs-ess/ESS.git ~/.emacs.d/ESS
     echo
+    echo Clonando polymode
+    echo
+    git clone git@github.com:vitoshka/polymode.git ~/.emacs.d/polymode
+    echo
 fi
 
 exit
