@@ -87,10 +87,19 @@ if [ $opcao -eq 1 ] ; then
     tar -zxvf ~/Programas/arquivos/R-$Rver.tar.gz -C ~/Programas
     echo
     echo
-    echo Rodando ./configure
-    echo
-    cd ~/Programas/R-$Rver
-    ./configure
+    echo Compilar o R como uma shared library (com a flag --enable-R-shlib) [ 1/0 ]?
+    read opt
+    if [ $opt -eq 1 ] ; then
+	echo Rodando ./configure --enable-R-shlib
+	echo
+	cd ~/Programas/R-$Rver
+	./configure --enable-R-shlib
+    else
+	echo Rodando ./configure
+	echo
+	cd ~/Programas/R-$Rver
+	./configure
+    fi
     echo
     echo
     echo Compilando...
