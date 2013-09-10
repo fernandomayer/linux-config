@@ -1,11 +1,15 @@
 #!/bin/bash
 
 echo -------------------------------------------------------------------
-echo Instalar Emacs? [ 1/0 ]
+echo Instalar Emacs (latest do PPA)? [ 1/0 ]
 echo -------------------------------------------------------------------
+# De https://launchpad.net/~cassou/+archive/emacs
 read opcao
 if [ $opcao -eq 1 ] ; then
-    apt-get install -y emacs emacs-goodies-el
+    add-apt-repository -y ppa:cassou/emacs
+    apt-get update
+    apt-get install emacs24 emacs24-el emacs24-common-non-dfsg \
+	emacs-goodies-el
 fi
 
 echo -------------------------------------------------------------------
@@ -19,8 +23,6 @@ if [ $opcao -eq 1 ] ; then
 	texlive-plain-extra texlive-science latex-xcolor latex-beamer \
 	cm-super cm-super-minimal cm-super-x11 auctex
 fi
-
-
 
 echo -------------------------------------------------------------------
 echo Instalar fontes extras? [ 1/0 ]
@@ -112,7 +114,7 @@ echo Instalar Java e plugins? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    apt-get install -y default-jdk icedtea-7-plugin
+    apt-get install -y default-jdk icedtea-plugin
 fi
 
 echo -------------------------------------------------------------------
