@@ -15,11 +15,8 @@ pkgs <- c("ggplot2", "plyr", "lubridate", "knitr",
           "maps", "mapdata", "maptools", "mapproj", "sp", "marelac",
           "geoR", "geoRglm", "fields", "RandomFields", "gstat", "rgeos",
           "rpanel", "rgl", "rgdal",
-          "mvtnorm",
+          "mvtnorm", "markdown",
           "dae", "ExpDes", "multcomp")
 
 ## Instalacao
 install.packages(pkgs, dependencies = TRUE)
-
-## Para usar:
-# source("/home/fernando/Ubuntu\ One/Linux/script_Rpkgs.R")
