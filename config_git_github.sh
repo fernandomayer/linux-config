@@ -15,9 +15,13 @@ echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
     echo
-    echo Importando arquivo de configuraçção do git, .gitconfig
+    echo Copiando arquivo de configuração do git, .gitconfig
     echo
-    cp ~/Ubuntu\ One/Linux/.gitconfig ~/
+    cp .gitconfig ~/
+    echo
+    echo Copiando .gitignore global
+    echo
+    cp .gitignore ~/
     echo
     echo Gerando chaves ssh
     ssh-keygen -t rsa -C "fernandomayer@gmail.com"
@@ -79,6 +83,9 @@ if [ $opcao -eq 1 ] ; then
     echo
     echo Colocando knitr-pdflatex.sh em /usr/local/bin
     sudo cp ~/GitHub/R-config-files/knitr-pdflatex.sh /usr/local/bin
+    echo
+    echo Colocando limpaRAM.sh em /usr/local/bin
+    sudo cp limpaRAM.sh /usr/local/bin
     echo
     echo Rodando xrdb -merge no .Xresources para o emacs reconhecer
     xrdb -merge ~/.Xresources
