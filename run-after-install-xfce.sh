@@ -21,6 +21,7 @@ if [ $opcao -eq 1 ] ; then
 	texlive-fonts-extra texlive-fonts-recommended \
 	texlive-generic-extra texlive-latex-extra texlive-math-extra \
 	texlive-plain-extra texlive-science latex-xcolor latex-beamer \
+	texlive-lang-portuguese \
 	cm-super cm-super-minimal cm-super-x11 auctex
 fi
 
