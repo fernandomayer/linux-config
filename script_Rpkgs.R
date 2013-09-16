@@ -14,7 +14,7 @@ pkgs <- c("ggplot2", "plyr", "lubridate", "knitr",
           "xtable", "gdata", "gridExtra", "latticeExtra",
           "maps", "mapdata", "maptools", "mapproj", "sp", "marelac",
           "geoR", "geoRglm", "fields", "RandomFields", "gstat", "rgeos",
-          "rpanel", "rgl", "rgdal",
+          "rpanel", "rgl", "rgdal", "car",
           "mvtnorm", "markdown",
           "dae", "ExpDes", "multcomp")
 

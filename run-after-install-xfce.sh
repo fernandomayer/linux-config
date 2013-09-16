@@ -1,14 +1,14 @@
 #!/bin/bash
 
 echo -------------------------------------------------------------------
-echo Instalar Emacs (latest do PPA)? [ 1/0 ]
+echo Instalar Emacs 24 do PPA? [ 1/0 ]
 echo -------------------------------------------------------------------
 # De https://launchpad.net/~cassou/+archive/emacs
 read opcao
 if [ $opcao -eq 1 ] ; then
     add-apt-repository -y ppa:cassou/emacs
     apt-get update
-    apt-get install emacs24 emacs24-el emacs24-common-non-dfsg \
+    apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg \
 	emacs-goodies-el
 fi
 
@@ -129,8 +129,7 @@ if [ $opcao -eq 1 ] ; then
     echo Lembre-se de rodar
     echo sudo sensors-detect
     echo e YES em todas
-    echo NOTA: o psensor vai ser iniciado automaticamente em cada sessão. Para
-    echo desabilitar, no Gnome 3: ALT+F2 gnome-session-properties
+    echo NOTA: o psensor vai ser iniciado automaticamente em cada sessão
     echo
 fi
 
