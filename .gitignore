@@ -1,3 +1,4 @@
+## LaTeX
 *.acn
 *.acr
 *.alg
@@ -31,3 +32,6 @@
 *.xdy
 *.tdo
 
+## R
+*.Rhistory
+*.RData
