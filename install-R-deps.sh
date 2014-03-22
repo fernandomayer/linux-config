@@ -27,7 +27,7 @@ if [ $opcao -eq 1 ] ; then
     sudo apt-get install -y build-essential gobjc gobjc++ \
 	gobjc-multilib gobjc++-multilib gfortran-multilib \
 	gcc-multilib g++-multilib automake autoconf gawk \
-	openmpi-common openmpi-checkpoint libopenmpi1.3 libopenmpi-dev \
+	openmpi-common openmpi-checkpoint libopenmpi1.6 libopenmpi-dev \
 	libsprng2 libsprng2-dev pvm pvm-dev unixodbc unixodbc-bin \
 	gdal-bin libgdal1-dev libproj-dev curl bwidget markdown pandoc
 
@@ -107,16 +107,18 @@ if [ $opcao -eq 1 ] ; then
     make
     echo
     echo
+    echo Rodar make check? [ 1/0 ]
+    read opt
+    if [ $opt -eq 1 ] ; then
     echo Rodando make check...
-    echo
     make check
-    echo
+    else
     echo
     echo Instalando...
     echo
     sudo make install
     echo
-    echo
+    fi
     echo R $Rver compilado e instalado
     echo
     echo

@@ -1,13 +1,14 @@
 #!/bin/bash
 
 echo -------------------------------------------------------------------
-echo Instalar Emacs 24 do PPA? [ 1/0 ]
+echo Instalar Emacs 24? [ 1/0 ]
 echo -------------------------------------------------------------------
 # De https://launchpad.net/~cassou/+archive/emacs
+# Para versoes antigas apenas
 read opcao
 if [ $opcao -eq 1 ] ; then
-    add-apt-repository -y ppa:cassou/emacs
-    apt-get update
+    # add-apt-repository -y ppa:cassou/emacs
+    # apt-get update
     apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg \
 	emacs-goodies-el
 fi
@@ -30,8 +31,8 @@ echo Instalar fontes extras? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    apt-get install -y ttf-bitstream-vera ttf-dejavu ttf-inconsolata \
-	ttf-liberation ttf-linux-libertine 
+    apt-get install -y ttf-bitstream-vera ttf-dejavu fonts-inconsolata \
+	ttf-liberation fonts-linuxlibertine 
 fi
 
 echo -------------------------------------------------------------------
@@ -88,8 +89,8 @@ if [ $opcao -eq 1 ] ; then
     # E o resultado de apt-get install ubuntu-restricted-extras,
     # mas tirei cabextract e ttf-mscorefonts-installer
     apt-get install -y gstreamer0.10-plugins-bad-multiverse \
-        libavcodec-extra-53 libavutil-extra-51 libfaac0 \
-        libmjpegutils-2.0-0 libmpeg2encpp-2.0-0 libmplex2-2.0-0 \
+        libavcodec-extra-54 libav-tools libavutil-extra-52 libfaac0 \
+        libmjpegutils-2.1-0 libmpeg2encpp-2.1-0 libmplex2-2.1-0 \
         libopenjpeg2 unrar xfce4-mixer vlc
 fi
 
