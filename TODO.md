@@ -2,6 +2,7 @@
 
 * remover medibuntu e instalar libdvdcss2 de outra forma, ver
   [link](http://www.webupd8.org/2014/04/10-things-to-do-after-installing-ubuntu.html)
+* `xubuntu-restricted-extras`
 * Adicionar a chave de segurança do repositorio do R pelo metodo
   alternativo (pelo menos com o proxy, o metodo atual nao esta
   funcionando).
