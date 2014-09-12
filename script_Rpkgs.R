@@ -7,13 +7,14 @@
 packageStatus()
 
 ## Atualiza se necessario
-update.packages(ask = FALSE)
+update.packages(ask = FALSE, checkBuilt = TRUE)
 
 ## Pacotes a serem instalados
 pkgs <- c("ggplot2", "plyr", "lubridate", "knitr",
           "xtable", "gdata", "gridExtra", "latticeExtra",
           "maps", "mapdata", "maptools", "mapproj", "marelac",
           "geoR", "geoRglm", "RandomFields", "gstat", "rgeos",
+          "spdep",
           "rpanel", "rgdal", "car", "ESSR", "TeachingDemos",
           "markdown", "pscl",
           "dae", "ExpDes", "multcomp")
