@@ -27,6 +27,26 @@ apropriado e rode dentro do R com
 source("/home/aonde/estiver/linux-config/script_Rpkgs.R")
 ```
 
+## Proxy
+
+O diretório `proxy` contém os arquivos necessários para setar o proxy
+(nesse caso ainda fixo para o proxy da FURG) para todo o sistema. Os
+scripts para ligar e desligar o proxy são, respectivamente:
+`proxy-ON.sh` e `proxy-OFF.sh`. Eles podem ser colocados em algum lugar
+do `PATH` para se tornarem disponíveis para todo o sistema. Por exemplo:
+
+```shell
+cp proxy-ON.sh /usr/local/bin
+cp proxy-OFF.sh /usr/local/bin
+```
+
+e devem ser rodados como `root`
+
+```shell
+sudo proxy-ON.sh
+sudo proxy-OFF.sh
+```
+
 > NOTA: estes scripts ainda estão pouco genéricos, mas com o tempo pretendo deixá-los mais gerais.
 
 ## Licença
