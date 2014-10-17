@@ -1,0 +1,4 @@
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+http_proxy="http://proxy.furg.br:3128"
+ftp_proxy="ftp://proxy.furg.br:3128"
+https_proxy="https://proxy.furg.br:3128"
