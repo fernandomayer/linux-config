@@ -108,6 +108,7 @@ if [ $opcao -eq 1 ] ; then
     echo
     echo
     echo Rodar make check? [ 1/0 ]
+    echo WARNING! Isso pode demorar bastante
     read opt
     if [ $opt -eq 1 ] ; then
     echo Rodando make check...
