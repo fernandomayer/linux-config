@@ -18,7 +18,7 @@ echo Instalar LaTeX? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    apt-get install -y texlive-base texlive-bibtex-extra \
+    aptitude install -y texlive-base texlive-bibtex-extra \
 	texlive-fonts-extra texlive-fonts-recommended \
 	texlive-generic-extra texlive-latex-extra texlive-math-extra \
 	texlive-plain-extra texlive-science latex-xcolor latex-beamer \
@@ -88,8 +88,7 @@ read opcao
 if [ $opcao -eq 1 ] ; then
     # E o resultado de apt-get install ubuntu-restricted-extras,
     # mas tirei cabextract e ttf-mscorefonts-installer
-    apt-get install -y gstreamer0.10-plugins-bad-multiverse \
-        libavcodec-extra-54 libav-tools libavutil-extra-52 libfaac0 \
+    apt-get install -y libav-tools libfaac0 \
         libmjpegutils-2.1-0 libmpeg2encpp-2.1-0 libmplex2-2.1-0 \
         libopenjpeg2 unrar vlc
 fi
