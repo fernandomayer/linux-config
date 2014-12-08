@@ -3,6 +3,15 @@
 Scripts para configuração inicial de um sistema Linux, após uma
 instalação nova.
 
+Para que haja uma instalação nova, você pode realizar o download da imagem
+(.iso) testing.
+```shell
+wget -c
+http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-dvd/debian-testing-amd64-DVD-1.iso
+```
+E depois gravar a sua imagem em um USB bootável, com o programa UnetBootin, ou
+utilizando o *dd* do Linux.
+
 Os principais pacotes instalados são: LaTeX (texlive), R, git, e outros
 softwares que considero úteis. 
 
