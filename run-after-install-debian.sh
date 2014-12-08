@@ -14,6 +14,19 @@ if [ $opcao -eq 1 ] ; then
 fi
 
 echo -------------------------------------------------------------------
+echo Instalar Python 2.7 ecosystem? [ 1/0 ]
+echo -------------------------------------------------------------------
+# De https://launchpad.net/~cassou/+archive/emacs
+# Para versoes antigas apenas
+read opcao
+if [ $opcao -eq 1 ] ; then
+    # add-apt-repository -y ppa:cassou/emacs
+    # apt-get update
+    apt-get install -y python2.7 python-pip git-core mercurial \
+        subversion build-essential python-dev
+fi
+
+echo -------------------------------------------------------------------
 echo Instalar LaTeX? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
