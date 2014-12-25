@@ -81,7 +81,7 @@ if [ $opcao -eq 1 ] ; then
     echo
     echo Digite a versao do R, apenas numeros
     read Rver
-    wget -O ~/Programas/arquivos/R-$Rver.tar.gz http://cran-r.c3sl.ufpr.br/src/base/R-3/R-$Rver.tar.gz
+    wget -O ~/Programas/arquivos/R-$Rver.tar.gz http://cran-r.c3sl.ufpr.br/src/base/R-2/R-$Rver.tar.gz
     echo
     echo Extraindo R-$Rver para ~/Programas
     tar -zxvf ~/Programas/arquivos/R-$Rver.tar.gz -C ~/Programas
