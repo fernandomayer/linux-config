@@ -23,7 +23,7 @@ if [ $opcao -eq 1 ] ; then
     # add-apt-repository -y ppa:cassou/emacs
     # apt-get update
     apt-get install -y python2.7 python-pip git-core mercurial \
-        subversion build-essential python-dev
+        subversion build-essential python-dev dvipng libfreetype6-dev
 fi
 
 echo -------------------------------------------------------------------
