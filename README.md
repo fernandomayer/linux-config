@@ -3,12 +3,16 @@
 Scripts para configuração inicial de um sistema Linux, após uma
 instalação nova.
 
-Estes scripts funcionam _razoavelmente_ bem para Xubuntu 14.10 em
+Estes scripts funcionam _razoavelmente_ bem para **Xubuntu** 14.10 em
 diante.
 
-Uma versão destes scripts para Debian foi desenvolvida por
+Uma versão destes scripts para **Debian** foi desenvolvida por
 @arnaldorusso, e podem ser acessados no *branch* `debian`
 [aqui](https://github.com/fernandomayer/linux-config/tree/debian).
+
+Uma versão destes scripts para **Fedora** foi desenvolvida por
+@rodrigosantana, e podem ser acessados no *branch* `fedora`
+[aqui](https://github.com/fernandomayer/linux-config/tree/fedora).
 
 Os principais pacotes instalados são: LaTeX (texlive), R, git, e outros
 softwares que considero úteis. 
