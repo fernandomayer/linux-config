@@ -85,7 +85,7 @@ if [ $opcao -eq 1 ] ; then
     sudo cp ~/GitLab/R-config-files/knitr-pdflatex.sh /usr/local/bin
     echo
     echo Colocando limpaRAM.sh em /usr/local/bin
-    sudo cp limpaRAM.sh /usr/local/bin
+    sudo cp ../limpaRAM.sh /usr/local/bin
     echo
     echo Copiando .bashrc padrao para ~/
     echo
