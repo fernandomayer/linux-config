@@ -16,11 +16,11 @@ if [ $opcao -eq 1 ] ; then
     echo
     echo Copiando arquivo de configuração do git, .gitconfig
     echo
-    cp .gitconfig ~/
+    cp ../.gitconfig ~/
     echo
     echo Copiando .gitignore global
     echo
-    cp .gitignore ~/
+    cp ../.gitignore ~/
     echo
     echo Gerando chaves ssh
     ssh-keygen -t rsa -C "fernandomayer@gmail.com"
