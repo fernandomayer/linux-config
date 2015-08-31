@@ -31,8 +31,7 @@ if [ $opcao -eq 1 ] ; then
     echo
     echo ATENCAO
     echo -------
-    echo Entre na sua conta do GitHub e cole esse conteudo em
-    echo https://github.com/settings/ssh
+    echo Entre na sua conta do GitLab e do GitHub e cole esse conteudo
     echo
     echo Pronto? [ 1/0 ]
     read pronto
@@ -40,12 +39,16 @@ if [ $opcao -eq 1 ] ; then
         echo Confirmando a adicao da chave com ssh-add
         ssh-add
         echo
+	echo Conferindo a conexao com git.leg
+        echo ssh -T git@git.leg.ufpr.br
+        ssh -T git@git.leg.ufpr.br
+	echo
         echo Conferindo a conexao com github.com
         echo ssh -T git@github.com
         ssh -T git@github.com
     fi
     echo
-    echo Git e GitHub configurados!
+    echo GitLab e GitHub configurados!
     echo
 fi
 
@@ -55,31 +58,31 @@ echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
     echo
-    echo Antes, verfica ja existe um diretorio ~/GitHub
-    if [ -e ~/GitHub ]; then
-        echo ~/GitHub ja foi criado, continuando...
+    echo Antes, verfica ja existe um diretorio ~/GitLab
+    if [ -e ~/GitLab ]; then
+        echo ~/GitLab ja foi criado, continuando...
     else
-        echo ~/GitHub ausente, vou criar
-	mkdir ~/GitHub
+        echo ~/GitLab ausente, vou criar
+	mkdir ~/GitLab
     fi
     echo
     echo Clonando R-config-files
     echo
-    git clone git@github.com:fernandomayer/R-config-files.git ~/GitHub/R-config-files
+    git clone git@git.leg.ufpr.br:fernandomayer/R-config-files.git ~/GitLab/R-config-files
     echo
     echo Clonando emacs-files
     echo
-    git clone git@github.com:fernandomayer/emacs-files.git ~/GitHub/emacs-files
+    git clone git@git.leg.ufpr.br:fernandomayer/emacs.git ~/GitLab/emacs
     echo
     echo Copiando arquivos de configuracao para ~/
     echo
     echo Copiando .Renviron, .Rprofile e .Xresources
-    cp ~/GitHub/R-config-files/.Renviron ~/
-    cp ~/GitHub/R-config-files/.Rprofile ~/
-    cp ~/GitHub/R-config-files/.Xresources ~/
+    cp ~/GitLab/R-config-files/.Renviron ~/
+    cp ~/GitLab/R-config-files/.Rprofile ~/
+    cp ~/GitLab/R-config-files/.Xresources ~/
     echo
     echo Colocando knitr-pdflatex.sh em /usr/local/bin
-    sudo cp ~/GitHub/R-config-files/knitr-pdflatex.sh /usr/local/bin
+    sudo cp ~/GitLab/R-config-files/knitr-pdflatex.sh /usr/local/bin
     echo
     echo Colocando limpaRAM.sh em /usr/local/bin
     sudo cp limpaRAM.sh /usr/local/bin
@@ -87,59 +90,53 @@ if [ $opcao -eq 1 ] ; then
     echo Rodando xrdb -merge no .Xresources para o emacs reconhecer
     xrdb -merge ~/.Xresources
     echo
-    echo Pelo .Renviron preciso ter um diretorio ~/R_environment/my_library
-    echo Verifica se ~/R_environment ja existe
+    echo Pelo .Renviron preciso ter um diretorio ~/R/library
+    echo Verifica se ~/R ja existe
     echo
-    if [ -e ~/R_environment ]; then
-        echo ~/R_environment ja foi criado
+    if [ -e ~/R ]; then
+        echo ~/R ja foi criado
         echo
-        echo Entao verifica se ~/R_environment/my_library ja existe
+        echo Entao verifica se ~/R/library ja existe
         echo
-        if [ -e ~/R_environment/my_library ]; then
-            echo ~/R_environment/my_library ja existe, continuando...
+        if [ -e ~/R/library ]; then
+            echo ~/R/library ja existe, continuando...
         else
-            echo ~/R_environment/my_library ausente, vou criar
-            mkdir ~/R_environment/my_library
+            echo ~/R/library ausente, vou criar
+            mkdir ~/R/library
         fi
     else
-        echo ~/R_environment ausente, vou criar
-    	mkdir ~/R_environment
+        echo ~/R ausente, vou criar
+    	mkdir ~/R
     	echo
-    	echo Criando tambem ~/R_environment/my_library
-    	mkdir ~/R_environment/my_library
+    	echo Criando tambem ~/R/library
+    	mkdir ~/R/library
     	echo
     fi
     echo Copiando emacs.el e convertendo em .emacs
-    cp ~/GitHub/emacs-files/emacs.el ~/
+    cp ~/GitLab/emacs/emacs.el ~/
     mv ~/emacs.el ~/.emacs
     echo
-    echo Para o .emacs preciso clonar o solarized e o ESS...
+    echo Verifica se ~/.emacs.d ja existe
     echo
-    echo Antes, verfica se o .emacs.d ja esta presente
     if [ -e ~/.emacs.d ]; then
-        echo ~/.emacs.d ja foi criado, continuando...
+        echo ~/.emacs.d ja foi criado
+        echo
     else
         echo ~/.emacs.d ausente, vou criar
-        mkdir ~/.emacs.d
-        echo
-        echo e agora podemos continuar...
+    	mkdir ~/.emacs.d
+    	echo
     fi
+    echo Copiando demais arquivos de configuracao do emacs
+    echo functions.el, library-install.el e prelude-packages.el
     echo
-    echo Clonando solarized
+    cp ~/GitLab/emacs/functions.el ~/.emacs.d
+    cp ~/GitLab/emacs/library-install.el ~/.emacs.d
+    cp ~/GitLab/emacs/prelude-packages.el ~/.emacs.d
     echo
-    git clone git@github.com:sellout/emacs-color-theme-solarized.git ~/.emacs.d/emacs-color-theme-solarized
+    echo Roda emacs em batch mode para instalar os pacotes do MELPA
     echo
-    echo Clonando ESS
+    emacs --batch -l ~/.emacs.d/library-install.el
     echo
-    git clone git@github.com:emacs-ess/ESS.git ~/.emacs.d/ESS
-    echo
-    echo Clonando markdown-mode
-    echo
-    git clone git://jblevins.org/git/markdown-mode.git ~/.emacs.d/markdown-mode
-    echo
-    echo Clonando polymode
-    echo
-    git clone git@github.com:vspinu/polymode.git ~/.emacs.d/polymode
     echo
 fi
 
