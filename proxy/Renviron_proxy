@@ -1,3 +1,0 @@
-http_proxy="http://proxy.furg.br:3128"
-https_proxy="http://proxy.furg.br:3128"
-ftp_proxy="http://proxy.furg.br:3128"
