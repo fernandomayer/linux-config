@@ -6,7 +6,6 @@ echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
     sudo pacman -S --noconfirm emacs
-    yaourt -S --noconfirm emacs-color-theme
 fi
 
 echo -------------------------------------------------------------------
@@ -16,7 +15,7 @@ read opcao
 if [ $opcao -eq 1 ] ; then
     sudo pacman -S --noconfirm texlive-core texlive-bin \
 	 texlive-fontsextra texlive-formatsextra texlive-latexextra \
-	 texlive-pstricks texlive-science auctex 
+	 texlive-pstricks texlive-science
     yaourt -S --noconfirm latex-beamer latex-enumitem \
 	   texlive-fonts-emerald urw-classico urw-garamond minionpro 
 fi
