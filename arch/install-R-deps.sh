@@ -8,7 +8,6 @@ if [ $opcao -eq 1 ] ; then
     ## calibre serve para converter os manuais em ebooks
     sudo pacman -S base-devel gcc-objc unixodbc gdal proj curl \
 	 bwidget markdown calibre ipython2
-    yaourt -S pandoc-static
 fi
 
 echo -------------------------------------------------------------------
