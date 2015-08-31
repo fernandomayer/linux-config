@@ -87,6 +87,14 @@ if [ $opcao -eq 1 ] ; then
     echo Colocando limpaRAM.sh em /usr/local/bin
     sudo cp limpaRAM.sh /usr/local/bin
     echo
+    echo Copiando .bashrc padrao para ~/
+    echo
+    echo Antes, faz um backup do que ja existe
+    cp ~/.bashrc ~/.bashrc_ORIGINAL
+    echo
+    echo Copia o novo
+    cp .bashrc ~/.bashrc
+    echo
     echo Rodando xrdb -merge no .Xresources para o emacs reconhecer
     xrdb -merge ~/.Xresources
     echo
