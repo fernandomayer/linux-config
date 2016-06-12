@@ -16,7 +16,29 @@ xrandr --addmode VGA-1 1360x768_60.00
 xrandr --output VGA-1 --mode 1360x768_60.00
 ```
 
-Isso altera a resolução para essa seção apenas. Para tornar essa resolução permanente, é necessário editar o `xorg.conf.d` (ainda não realizado).
+Isso altera a resolução para essa seção apenas. Para tornar essa resolução permanente, criei o arquivo `~/.xprofile` com os comandos:
+
+```bash
+xrandr --newmode "1360x768_60.00"   84.75  1360 1432 1568 1776  768 771 781 798 -hsync +vsync
+xrandr --addmode VGA-1 1360x768_60.00
+xrandr --output VGA-1 --mode 1360x768_60.00
+```
+
+e depois criei o arquivo `~/.xinitrc` para executar esses comandos (apenas o `~/.xprofile` não funciona):
+
+```bash
+#
+# ~/.xinitrc
+#
+
+#
+# Run .xprofile
+#
+
+if [ -f ~/.xprofile ]; then
+	    . ~/.xprofile
+fi
+```
 
 Links:
 
