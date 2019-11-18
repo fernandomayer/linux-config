@@ -15,7 +15,7 @@ echo Instalar dependências para RGL? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    sudo pacman -S mesa xproto
+    sudo pacman -S mesa xproto glu
 fi
 
 echo -------------------------------------------------------------------
