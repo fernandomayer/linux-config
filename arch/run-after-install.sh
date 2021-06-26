@@ -14,9 +14,9 @@ echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
     sudo pacman -S --noconfirm texlive-core texlive-bin \
-	 texlive-fontsextra texlive-formatsextra texlive-latexextra \
-	 texlive-bibtexextra texlive-pstricks texlive-science \
-   texlive-humanities texlive-publishers --needed
+	       texlive-fontsextra texlive-formatsextra texlive-latexextra \
+	       texlive-bibtexextra texlive-pstricks texlive-science \
+         texlive-humanities texlive-publishers --needed
 fi
 
 
