@@ -29,7 +29,8 @@ if [ $opcao -eq 1 ] ; then
          perl unzip which zip gcc-fortran tcl tk gcc-fortran \
          jdk-openjdk texlive-bin texlive-core blas lapack bzip2 \
          desktop-file-utils gcc-libs libjpeg libpng libxt ncurses \
-         pango perl readline unzip xz zip zlib --needed
+         pango perl readline unzip xz zip zlib libgit2 --needed
+    yaourt -S udunits --noconfirm
 fi
 
 exit
