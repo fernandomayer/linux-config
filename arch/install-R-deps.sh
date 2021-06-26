@@ -24,7 +24,7 @@ read opcao
 if [ $opcao -eq 1 ] ; then
     ## Aqui estao todas as dependencias (mesmo as ja instaladas) obtidas
     ## a partir do site do pacote r para arch
-    ## https://www.archlinux.org/packages/extra/i686/r/
+    ## https://archlinux.org/packages/extra/x86_64/r/
     sudo pacman -S curl icu lapack libtiff libxmu pango pcre pcre2 \
          perl unzip which zip gcc-fortran tcl tk gcc-fortran \
          jdk-openjdk texlive-bin texlive-core blas lapack bzip2 \
