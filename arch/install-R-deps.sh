@@ -30,7 +30,7 @@ if [ $opcao -eq 1 ] ; then
          jdk-openjdk texlive-bin texlive-core blas lapack bzip2 \
          desktop-file-utils gcc-libs libjpeg libpng libxt ncurses \
          pango perl readline unzip xz zip zlib libgit2 \
-         pandoc pandoc-crossref --needed
+         pandoc pandoc-crossref libdeflate --needed
     yaourt -S udunits --noconfirm
 fi
 
