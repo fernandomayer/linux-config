@@ -6,9 +6,9 @@ echo -------------------------------------------------------------------
 read opcao
 # No Fedora o equivalente aos pacotes build-essential do Ubuntu e a 
 # instalacao do Development Tools e Development Libraries... estes 
-# estes pacotes serao instalados pelo comando yum groupinstall...
+# estes pacotes serao instalados pelo comando dnf groupinstall...
 if [ $opcao -eq 1 ] ; then
-    sudo yum groupinstall -y "Development Tools" "Development Libraries"
+    sudo dnf groupinstall -y "Development Tools" "Development Libraries"
 fi
 
 echo -------------------------------------------------------------------
@@ -16,11 +16,11 @@ echo Instalar Pacotes de Desenvolvimento 2? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    sudo yum install -y gcc gcc-c++ gcc-objc gcc-objc++ gcc-gfortran \
+    sudo dnf install -y gcc gcc-c++ gcc-objc gcc-objc++ gcc-gfortran \
 	glibc glibc-devel glibc-utils kernel-devel gobject-introspection \
  	libgfortran automake autoconf gawk openmpi openmpi-devel \
 	pvm unixODBC unixODBC-devel gdal gdal-devel proj proj-devel \
-	proj-epgs proj-nad curl bwidget libmarkdown libmarkdown-devel \
+	proj-epsg proj-nad curl bwidget libmarkdown libmarkdown-devel \
 	pandoc
 fi
 
@@ -29,7 +29,7 @@ echo Instalar dependências para RGL? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    sudo yum install -y cdbs intltool libdrm-dev mesa-libGLU \
+    sudo dnf install -y cdbs intltool libdrm-devel mesa-libGLU \
 	mesa-libGLU-devel mesa-libGL mesa-libGL-devel xorg-x11-proto-devel \
 	libglpng libglpng-devel opengl-games-utils
 fi
@@ -40,10 +40,10 @@ echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
     sudo mv /etc/yum.repos.d/livna.repo /etc/yum.repos.d/livna-repo
-    sudo yum update
-    sudo yum-builddep -y R
+    sudo dnf update
+    sudo dnf builddep -y R
     sudo mv /etc/yum.repos.d/livna-repo /etc/yum.repos.d/livna.repo
-    sudo yum update
+    sudo dnf update
 fi
 
 echo -------------------------------------------------------------------
