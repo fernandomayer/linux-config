@@ -102,11 +102,11 @@ if [ $opcao -eq 1 ] ; then
 fi
 
 echo -------------------------------------------------------------------
-echo Instalar YUM utilities? [ 1/0 ]
+echo Instalar DNF utilities? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    sudo dnf install -y yum-utils
+    sudo dnf install -y dnf-utils
 fi
 
 exit
