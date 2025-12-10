@@ -5,8 +5,9 @@ echo Instalar Emacs 24? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    yum install -y emacs emacs-el emacs-goodies-el \ 
-        emacs-color-theme-el emacs-ess-el
+    # Nota: emacs-goodies-el e emacs-color-theme-el foram removidos
+    # (não existem mais no Fedora / integrados ao core do Emacs)
+    sudo dnf install -y emacs emacs-el emacs-ess
 fi
 
 echo -------------------------------------------------------------------
@@ -14,7 +15,7 @@ echo Instalar LaTeX? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    yum install -y texlive-base texlive-bibtex texlive-scheme-full \
+    sudo dnf install -y texlive-base texlive-bibtex texlive-scheme-full \
 	texlive-collection-bibtexextra texlive-collection-fontsextra \
 	texlive-collection-fontsrecommended texlive-collection-fontutils \
 	texlive-collection-formatsextra texlive-collection-genericextra \
@@ -32,7 +33,7 @@ echo Instalar fontes extras? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    yum install -y bitstream-vera-fonts-common bitstream-vera-sans-fonts \
+    sudo dnf install -y bitstream-vera-fonts-common bitstream-vera-sans-fonts \
 	bitstream-vera-sans-mono-fonts bitstream-vera-serif-fonts \
 	dejavu-fonts-common dejavu-sans-fonts dejavu-sans-mono-fonts \
 	dejavu-serif-fonts levien-inconsolata-fonts liberation-fonts-common \
@@ -67,26 +68,18 @@ echo Instalar Chrome? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    yum install -y google-chrome-stable
+    sudo dnf install -y google-chrome-stable
 fi
 
-echo -------------------------------------------------------------------
-echo Instalar Adobe-flash-player? [ 1/0 ]
-echo -------------------------------------------------------------------
-read opcao
-if [ $opcao -eq 1 ] ; then
-    wget http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
-    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
-    yum install -y flash-plugin
-    rm adobe-release-x86_64-1.0-1.noarch.rpm
-fi
+# Nota: Adobe Flash Player foi descontinuado em dezembro de 2020
+# e não é mais suportado. Esta seção foi removida.
 
 echo -------------------------------------------------------------------
 echo Instalar utilidades para desktop? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    yum install -y shutter
+    sudo dnf install -y shutter
 fi
 
 echo -------------------------------------------------------------------
@@ -94,7 +87,7 @@ echo Instalar pacotes de produtividade? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    yum install -y dia maxima wxMaxima maxima-gui gnuplot
+    sudo dnf install -y dia maxima wxMaxima maxima-gui gnuplot
 fi
 
 echo -------------------------------------------------------------------
@@ -102,18 +95,18 @@ echo Instalar pacotes multimidia? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    yum install -y ffmpeg-devel ffmpeg-libs ffmpeg gstreamer-ffmpeg \
+    sudo dnf install -y ffmpeg-devel ffmpeg-libs ffmpeg gstreamer-ffmpeg \
 	gstreamer1-plugins-ugly gstreamer1-plugins-bad-free \
 	xmms xmms-mp3 xmms-mplayer mplayer smplayer libdvdcss \
 	xine-lib xine-lib-extras unrar vlc-core vlc-extras vlc
 fi
 
 echo -------------------------------------------------------------------
-echo Instalar YUM utilities? [ 1/0 ]
+echo Instalar DNF utilities? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    yum install -y yum-utils
+    sudo dnf install -y dnf-utils
 fi
 
 exit

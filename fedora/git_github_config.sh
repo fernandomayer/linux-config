@@ -5,7 +5,7 @@ echo Instalar git e ssh? [ 1/0 ]
 echo -------------------------------------------------------------------
 read opcao
 if [ $opcao -eq 1 ] ; then
-    sudo yum install -y git git-all git-gui libssh openssh-server \
+    sudo dnf install -y git git-gui libssh openssh-server \
 	openssh-client
 fi
 
@@ -27,7 +27,7 @@ if [ $opcao -eq 1 ] ; then
     ssh-keygen -t rsa -C "oc.rodrigosantana@gmail.com"
     echo
     echo Instalando xclip
-    sudo yum install -y xclip
+    sudo dnf install -y xclip
     echo
     echo Copiando o conteudo de ~/.ssh/id_rsa.pub para o clipboard
     xclip -sel clip < ~/.ssh/id_rsa.pub
