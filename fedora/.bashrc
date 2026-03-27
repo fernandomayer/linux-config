@@ -23,6 +23,11 @@ if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
 	. /usr/share/git-core/contrib/completion/git-prompt.sh
 fi
 
+# enable dnf commands completion
+if [ -f /usr/share/bash-completion/completions/dnf ]; then
+	. /usr/share/bash-completion/completions/dnf
+fi
+
 #
 # Exports
 #
@@ -47,7 +52,7 @@ alias fehfeh="feh -g 800x600 -Z"
 # alias emacs='LANG=C emacs'
 alias R='R --no-save'
 
-neofetch
+fastfetch
 
 #
 # Prompts
