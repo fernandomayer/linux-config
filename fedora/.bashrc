@@ -61,4 +61,6 @@ fastfetch
 PS1='[\u@\h \W]\$ '
 # enable git prompt (show branch name in prompt)
 # see arch wiki for git for details
-PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+if declare -F __git_ps1 >/dev/null 2>&1 ; then
+    PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+fi
