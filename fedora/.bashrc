@@ -5,17 +5,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Source global definitions (loads Fedora's bash-completion infrastructure)
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 #
 # Completions
 #
-
-# Load main bash-completion infrastructure (on Fedora the real file may be
-# under /usr/share/bash-completion/ rather than /etc/bash_completion)
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-	. /usr/share/bash-completion/bash_completion
-elif [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
-fi
 
 # enable git commands completion
 if [ -f /usr/share/bash-completion/completions/git ]; then
