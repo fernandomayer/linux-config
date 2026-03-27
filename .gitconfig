@@ -3,6 +3,5 @@
 	email = fernandomayer@gmail.com
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore
 [credential]
 	helper = cache --timeout=3600
