@@ -28,6 +28,13 @@ if [ -f /usr/share/bash-completion/completions/dnf ]; then
 	. /usr/share/bash-completion/completions/dnf
 fi
 
+# enable sudo completion (completes the subcommand after sudo)
+if [ -f /usr/share/bash-completion/completions/sudo ]; then
+	. /usr/share/bash-completion/completions/sudo
+else
+	complete -cf sudo
+fi
+
 #
 # Exports
 #
@@ -61,6 +68,9 @@ fastfetch
 PS1='[\u@\h \W]\$ '
 # enable git prompt (show branch name in prompt)
 # see arch wiki for git for details
+# \u@\h is colored green; \W and git branch remain in default color
 if declare -F __git_ps1 >/dev/null 2>&1 ; then
-    PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+    PS1='[\[\e[32m\]\u@\h\[\e[0m\] \W$(__git_ps1 " (%s)")]\$ '
+else
+    PS1='[\[\e[32m\]\u@\h\[\e[0m\] \W]\$ '
 fi
