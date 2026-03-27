@@ -9,7 +9,11 @@
 # Completions
 #
 
-if [ -f /etc/bash_completion ]; then
+# Load main bash-completion infrastructure (on Fedora the real file may be
+# under /usr/share/bash-completion/ rather than /etc/bash_completion)
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+	. /usr/share/bash-completion/bash_completion
+elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
@@ -23,17 +27,8 @@ if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
 	. /usr/share/git-core/contrib/completion/git-prompt.sh
 fi
 
-# enable dnf commands completion
-if [ -f /usr/share/bash-completion/completions/dnf ]; then
-	. /usr/share/bash-completion/completions/dnf
-fi
-
-# enable sudo completion (completes the subcommand after sudo)
-if [ -f /usr/share/bash-completion/completions/sudo ]; then
-	. /usr/share/bash-completion/completions/sudo
-else
-	complete -cf sudo
-fi
+# enable completion for commands run via sudo
+complete -cf sudo
 
 #
 # Exports
