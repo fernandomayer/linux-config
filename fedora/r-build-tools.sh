@@ -13,7 +13,7 @@ sudo dnf install gcc gcc-c++ gcc-objc gcc-objc++ gcc-gfortran \
   libpng-devel libjpeg-turbo-devel libtiff-devel \
   java-latest-openjdk-devel libxml2-devel \
   tcl-devel tk-devel libdeflate-devel libXmu-devel libtirpc-devel \
-  pandoc
+  pandoc libuv-devel
 
 
 ## Intel MKL
