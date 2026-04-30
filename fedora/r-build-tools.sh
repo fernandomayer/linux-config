@@ -14,7 +14,8 @@ sudo dnf install gcc gcc-c++ gcc-objc gcc-objc++ gcc-gfortran \
   java-latest-openjdk-devel libxml2-devel \
   tcl-devel tk-devel libdeflate-devel libXmu-devel libtirpc-devel \
   pandoc libuv-devel lapack lapack-devel blas blas-devel cmake \
-  gsl-devel udunits2-devel abseil-cpp-devel geos-devel tbb-devel
+  gsl-devel udunits2-devel abseil-cpp-devel geos-devel tbb-devel \
+  libsecret-devel
 
 
 ## Intel MKL
