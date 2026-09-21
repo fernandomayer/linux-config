@@ -94,13 +94,16 @@ sudo localectl set-x11-keymap br pc105 abnt2
 ```
 
 Isso grava `/etc/X11/xorg.conf.d/00-keyboard.conf`. O teclado do console
-já estava como `br-abnt2`. Para conferir depois do login:
+já estava como `br-abnt2`. Para conferir:
 
 ```bash
+localectl
 setxkbmap -query
 ```
 
-Deve mostrar `layout: br` e `variant: abnt2`.
+O `localectl` deve mostrar `X11 Layout: br`, `X11 Model: pc105` e
+`X11 Variant: abnt2` (antes do comando aparecia `X11 Layout: (unset)`),
+e o `setxkbmap -query` deve mostrar `layout: br` e `variant: abnt2`.
 
 ## Pastas em minúsculas (Desktop, Downloads, Documents e Pictures)
 
