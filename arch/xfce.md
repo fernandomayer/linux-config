@@ -178,6 +178,24 @@ printf 'YAOURTTMPDIR="$HOME/.cache/yaourt"\n' > ~/.yaourtrc
   alternativas usuais), mas continuo usando: funciona bem e é leve, o
   que importa nesta máquina.
 
+## Tempo de espera do GRUB
+
+O padrão é 5 segundos (`GRUB_TIMEOUT=5` em `/etc/default/grub`). Para
+reduzir para 1 segundo, altere o valor (com backup) e regenere a
+configuração:
+
+```bash
+sudo cp /etc/default/grub /etc/default/grub.bk && sudo sed -i 's/^GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/' /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+grep '^GRUB_TIMEOUT' /etc/default/grub
+```
+
+Vale a partir do próximo boot. Esta máquina inicia em UEFI e o
+`grub.cfg` fica em `/boot/grub/grub.cfg`. Com `GRUB_TIMEOUT=0` o menu
+nem aparece, o que dificulta a recuperação se algo der errado; com 1
+segundo ainda dá tempo de apertar uma tecla para parar a contagem.
+Mantenha `GRUB_TIMEOUT_STYLE=menu` para o menu continuar visível.
+
 ## Outras notas
 
 - O alias `fixit` que existia no `~/.bashrc` usava `pacman-mirrors`,
