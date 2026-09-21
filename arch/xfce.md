@@ -102,6 +102,35 @@ setxkbmap -query
 
 Deve mostrar `layout: br` e `variant: abnt2`.
 
+## Pastas em minúsculas (Desktop e Downloads)
+
+Para renomear as pastas padrão do home é preciso avisar o sistema onde
+elas estão, senão os aplicativos continuam usando os nomes antigos:
+
+```bash
+mv ~/Desktop ~/desktop
+mv ~/Downloads ~/downloads
+printf 'XDG_DESKTOP_DIR="$HOME/desktop"\nXDG_DOWNLOAD_DIR="$HOME/downloads"\n' > ~/.config/user-dirs.dirs
+echo 'enabled=False' > ~/.config/user-dirs.conf
+```
+
+O `user-dirs.conf` com `enabled=False` impede que o
+`xdg-user-dirs-update`, executado no login, recrie as pastas com nomes
+em maiúsculas (isso só importa com o pacote `xdg-user-dirs` instalado).
+Para conferir:
+
+```bash
+xdg-user-dir DESKTOP    # /home/mayer/desktop
+xdg-user-dir DOWNLOAD   # /home/mayer/downloads
+```
+
+O ícone da área de trabalho e a barra lateral do Thunar passam a usar as
+novas pastas depois de sair e entrar de novo na sessão. No Firefox,
+`browser.download.lastDir` no `prefs.js` ainda pode apontar para
+`~/Downloads`, mas é só a última pasta lembrada pelo seletor de arquivos
+(`useDownloadDir` está `false`, então ele pergunta onde salvar); basta
+escolher `~/downloads` uma vez.
+
 ## Outras notas
 
 - O alias `fixit` que existia no `~/.bashrc` usava `pacman-mirrors`,
