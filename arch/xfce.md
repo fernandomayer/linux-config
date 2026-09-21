@@ -102,7 +102,7 @@ setxkbmap -query
 
 Deve mostrar `layout: br` e `variant: abnt2`.
 
-## Pastas em minúsculas (Desktop e Downloads)
+## Pastas em minúsculas (Desktop, Downloads, Documents e Pictures)
 
 Para renomear as pastas padrão do home é preciso avisar o sistema onde
 elas estão, senão os aplicativos continuam usando os nomes antigos:
@@ -110,7 +110,8 @@ elas estão, senão os aplicativos continuam usando os nomes antigos:
 ```bash
 mv ~/Desktop ~/desktop
 mv ~/Downloads ~/downloads
-printf 'XDG_DESKTOP_DIR="$HOME/desktop"\nXDG_DOWNLOAD_DIR="$HOME/downloads"\n' > ~/.config/user-dirs.dirs
+printf 'XDG_DESKTOP_DIR="$HOME/desktop"\nXDG_DOWNLOAD_DIR="$HOME/downloads"\nXDG_DOCUMENTS_DIR="$HOME/documents"\nXDG_PICTURES_DIR="$HOME/pictures"\n' > ~/.config/user-dirs.dirs
+mkdir -p ~/documents ~/pictures
 echo 'enabled=False' > ~/.config/user-dirs.conf
 ```
 
@@ -122,6 +123,8 @@ Para conferir:
 ```bash
 xdg-user-dir DESKTOP    # /home/mayer/desktop
 xdg-user-dir DOWNLOAD   # /home/mayer/downloads
+xdg-user-dir DOCUMENTS  # /home/mayer/documents
+xdg-user-dir PICTURES   # /home/mayer/pictures
 ```
 
 O ícone da área de trabalho e a barra lateral do Thunar passam a usar as
@@ -130,6 +133,15 @@ novas pastas depois de sair e entrar de novo na sessão. No Firefox,
 `~/Downloads`, mas é só a última pasta lembrada pelo seletor de arquivos
 (`useDownloadDir` está `false`, então ele pergunta onde salvar); basta
 escolher `~/downloads` uma vez.
+
+O Xfce4 Screenshooter salvava as capturas na raiz do home. Para mandá-las
+para `~/pictures`, altere `screenshot_dir` em
+`~/.config/xfce4/xfce4-screenshooter` (ou escolha a pasta na janela do
+programa):
+
+```bash
+sed -i 's|^screenshot_dir=.*|screenshot_dir=file:///home/mayer/pictures|' ~/.config/xfce4/xfce4-screenshooter
+```
 
 ## Compilar pacotes do AUR fora do /tmp (yaourt/makepkg)
 
