@@ -131,6 +131,41 @@ novas pastas depois de sair e entrar de novo na sessão. No Firefox,
 (`useDownloadDir` está `false`, então ele pergunta onde salvar); basta
 escolher `~/downloads` uma vez.
 
+## Compilar pacotes do AUR fora do /tmp (yaourt/makepkg)
+
+Neste Arch o `/tmp` é um `tmpfs` (fica na RAM) com cerca de 923 MB. O
+`yaourt` compila em `/tmp/yaourt-tmp-<usuario>`, e pacotes grandes
+(como o `quarto-cli-bin`, cujo `.deb` tem 142 MB e descompacta em várias
+vezes isso) enchem o `/tmp`. O erro que aparece é enganoso:
+
+```
+zstd: error 70 : Write error : cannot write block : Disk quota exceeded
+==> ERROR: Failed to create package file.
+```
+
+Não é cota de disco: é o `tmpfs` cheio (confira com `df -h /tmp`). Além
+disso, compilar na RAM é ruim em uma máquina com 1,8 GiB. A solução é
+mandar as compilações para o disco, com arquivos no home:
+
+```bash
+mkdir -p ~/.cache/makepkg/{build,pkgs,src} ~/.cache/yaourt
+printf 'BUILDDIR=$HOME/.cache/makepkg/build\nPKGDEST=$HOME/.cache/makepkg/pkgs\nSRCDEST=$HOME/.cache/makepkg/src\n' > ~/.makepkg.conf
+printf 'YAOURTTMPDIR="$HOME/.cache/yaourt"\n' > ~/.yaourtrc
+```
+
+- `~/.makepkg.conf` vale para todo uso do `makepkg`; `~/.yaourtrc`
+  muda o diretório temporário do `yaourt`.
+- Se o `yaourt` ignorar o `YAOURTTMPDIR`, o `BUILDDIR` do
+  `~/.makepkg.conf` ainda vale. Como alternativa, rode
+  `TMPDIR=$HOME/.cache/yaourt yaourt -S <pacote>`.
+- Os diretórios ficam no disco e podem ser apagados quando quiser sem
+  afetar os programas instalados. O `src/` guarda o que foi baixado
+  (143 MB após o Quarto) e não é limpo automaticamente:
+  `rm -rf ~/.cache/makepkg/src/*`.
+- O `yaourt` não tem mais manutenção (`yay` e `paru` são as
+  alternativas usuais), mas continuo usando: funciona bem e é leve, o
+  que importa nesta máquina.
+
 ## Outras notas
 
 - O alias `fixit` que existia no `~/.bashrc` usava `pacman-mirrors`,
