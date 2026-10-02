@@ -199,6 +199,34 @@ nem aparece, o que dificulta a recuperação se algo der errado; com 1
 segundo ainda dá tempo de apertar uma tecla para parar a contagem.
 Mantenha `GRUB_TIMEOUT_STYLE=menu` para o menu continuar visível.
 
+## Tela nunca apagar nem bloquear (para dar aula)
+
+O `xfce4-power-manager` já estava certo: todos os tempos de DPMS
+(`dpms-on-ac-off`, `dpms-on-ac-sleep`, `dpms-on-battery-off`,
+`dpms-on-battery-sleep`) em `0` (nunca). Quem apagava e bloqueava a
+tela a cada 5-10 minutos era o `xfce4-screensaver`.
+
+O pacote instalado está com um defeito: não tem o arquivo de esquema
+GSettings (`org.xfce.screensaver.gschema.xml`), então a janela
+"Protetor de tela" nunca consegue salvar nada — por isso as mudanças
+pelo menu de configurações não tinham efeito nenhum.
+
+Como o esquema está quebrado, a solução foi desativar o programa em vez
+de configurá-lo. Não precisa de `sudo`, pois usa a sobreposição de
+autostart por usuário:
+
+```bash
+mkdir -p ~/.config/autostart
+cp /etc/xdg/autostart/xfce4-screensaver.desktop ~/.config/autostart/xfce4-screensaver.desktop
+printf '\nHidden=true\n' >> ~/.config/autostart/xfce4-screensaver.desktop
+kill $(pgrep -f xfce4-screensaver)   # para o processo já em execução nesta sessão
+```
+
+`Hidden=true` no `.desktop` em `~/.config/autostart` é a forma correta
+de desativar um autostart de `/etc/xdg/autostart` sem alterar arquivos
+do sistema. O atalho manual `Ctrl+Alt+L` (`xflock4`) continua
+funcionando para bloquear a tela quando quiser.
+
 ## Outras notas
 
 - O alias `fixit` que existia no `~/.bashrc` usava `pacman-mirrors`,
