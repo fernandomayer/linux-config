@@ -31,6 +31,7 @@ alias grep='grep --color=tty -d skip'
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias R='R --no-save'
+alias glo='git log --oneline -n 10'
 
 
 fastfetch

@@ -104,6 +104,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias emacs='XLIB_SKIP_ARGB_VISUALS=1 emacs'
 alias code='io.elementary.code'
+alias glo='git log --oneline -n 10'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

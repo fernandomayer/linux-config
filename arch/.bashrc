@@ -47,6 +47,7 @@ alias fehfeh="feh -g 800x600 -Z"
 # alias cat='bat'
 # alias emacs='LANG=C emacs'
 alias R='R --no-save'
+alias glo='git log --oneline -n 10'
 
 neofetch
 
